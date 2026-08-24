@@ -5,7 +5,8 @@ import {
   Users,
   TrendingUp,
   BarChart3,
-  Activity
+  Activity,
+  CheckCircle
 } from 'lucide-react';
 
 const Sidebar = ({ activePage, setActivePage }) => {
@@ -14,6 +15,7 @@ const Sidebar = ({ activePage, setActivePage }) => {
     { id: 'audit', label: 'Audit 5S', icon: ClipboardCheck },
     { id: 'gemba', label: 'Gemba OJT', icon: Users },
     { id: 'resultats', label: 'Résultats 5S', icon: BarChart3 },
+    { id: 'action', label: 'Action 5S', icon: CheckCircle },
     { id: 'tendance', label: 'Tendance Lignes', icon: Activity },
   ];
 

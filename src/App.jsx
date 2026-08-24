@@ -5,6 +5,7 @@ import Audit5S from './pages/Audit5S';
 import GembaOJT from './pages/GembaOJT';
 import Resultats5S from './pages/Resultats5S';
 import TendanceLignes from './pages/TendanceLignes';
+import Action5S from './pages/Action5S';
 import './index.css';
 import './App.css';
 
@@ -24,6 +25,8 @@ function App() {
         return <Resultats5S currentWeek={currentWeek} onWeekChange={setCurrentWeek} />;
       case 'tendance':
         return <TendanceLignes currentWeek={currentWeek} onWeekChange={setCurrentWeek} />;
+      case 'action':
+        return <Action5S currentWeek={currentWeek} onWeekChange={setCurrentWeek} />;
       default:
         return <Home currentWeek={currentWeek} onWeekChange={setCurrentWeek} />;
     }
