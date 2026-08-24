@@ -1,0 +1,34 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /audit5S/{documentId} {
+      allow read: if true;
+      allow write: if true;
+      allow write: if request.resource.data.keys().hasAll(['semaine', 'planifie', 'realise', 'taux_realisation']) &&
+        request.resource.data.semaine is string &&
+        request.resource.data.planifie is number &&
+        request.resource.data.realise is number &&
+        request.resource.data.taux_realisation is number;
+    }
+    match /gembaOJT/{documentId} {
+      allow read: if true;
+      allow write: if true;
+      allow write: if request.resource.data.keys().hasAll(['semaine', 'planifie', 'realise', 'taux_realisation']) &&
+        request.resource.data.semaine is string &&
+        request.resource.data.planifie is number &&
+        request.resource.data.realise is number &&
+        request.resource.data.taux_realisation is number;
+    }
+    match /resultats5S/{documentId} {
+      allow read: if true;
+      allow write: if true;
+      allow write: if request.resource.data.keys().hasAll(['uap', 'ligne', 'semaines']) &&
+        request.resource.data.uap is string &&
+        request.resource.data.ligne is string &&
+        request.resource.data.semaines is map;
+    }
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
